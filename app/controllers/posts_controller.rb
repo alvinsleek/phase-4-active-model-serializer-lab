@@ -11,6 +11,15 @@ class PostsController < ApplicationController
     render json: post
   end
 
+  def show 
+    author = Author.find(params[;id])
+    render json: author, serializer: AuthorSerializer
+  end
+
+  def show
+    post = Post.find(params[:id])
+    render json: post, serializer: PostSerializer
+  end
   private
 
   def render_not_found_response
